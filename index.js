@@ -36,6 +36,7 @@ app.get("/database/query", async (req, res) => {
       techStack: project.techStack.multi_select.map((stack) => stack.name),
       imageUrl: project.image?.files[0]?.file?.url ?? null,
       detailsId: project.details?.relation?.map((detail) => detail.id ?? null),
+      slug: project.slug.rich_text[0].text.content,
     }));
 
     res.send({ projects });
