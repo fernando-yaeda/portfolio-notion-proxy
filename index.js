@@ -57,6 +57,7 @@ app.get("/project/:id", async (req, res) => {
       title: project.title.title[0].text.content,
       paragraph: project.paragraph.rich_text[0].text.content,
       imageUrl: project.image.files[0].file.url,
+      desktop: project.desktop.checkbox,
     };
 
     res.send({ projectDetails });
