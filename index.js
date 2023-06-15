@@ -27,6 +27,7 @@ app.get("/database/query", async (req, res) => {
           },
         ],
       },
+      sorts: [{ property: "order", direction: "ascending" }],
     });
     const results = response.results.map((res) => res.properties);
 
@@ -38,6 +39,8 @@ app.get("/database/query", async (req, res) => {
       detailsId: project.details?.relation?.map((detail) => detail.id ?? null),
       slug: project.slug.rich_text[0].text.content,
     }));
+
+    console.log(projects);
 
     res.send({ projects });
   } catch (error) {
